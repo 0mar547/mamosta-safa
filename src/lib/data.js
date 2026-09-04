@@ -143,9 +143,10 @@ export const genders = [
 // Martyr / family-loss bonus
 // ---------------------------------------------------------------------------
 
-// A family member's death (martyr, in Iraq or Kurdistan) grants an admission-score
-// bonus, applied only to day-shift ('بەیانی') colleges in the region the death
-// occurred in. The two tiers never stack — a college gets one or the other:
+// A family member's martyrdom grants an admission-score bonus, applied only
+// to day-shift ('بەیانی') Iraq colleges — Kurdistan colleges never receive
+// this bonus, regardless of the martyr's own region. The two tiers never
+// stack — a college gets one or the other:
 //   - Medicine / Dentistry / Pharmacy colleges: +5, but ONLY if the student's own
 //     entered score is >= 90 (otherwise no bonus on these specific colleges).
 //   - Every other college: +7, regardless of the student's score.
@@ -154,8 +155,8 @@ export const MARTYR_BONUS_MEDICAL_EXTRA = 5
 export const MARTYR_BONUS_MEDICAL_THRESHOLD = 90
 
 export function martyrBonusFor(college, student) {
-  if (!student.martyrRegion) return 0
-  if (college.region !== student.martyrRegion) return 0
+  if (!student.hasMartyr) return 0
+  if (college.region !== 'iraq') return 0
   if (college.shift !== 'بەیانی') return 0
   // Medicine / dentistry / pharmacy get +5 (only when the student's own score is >= 90).
   // Every other college gets +7. The two never stack.

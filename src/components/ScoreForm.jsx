@@ -20,7 +20,6 @@ export default function ScoreForm({ onSubmit, initialScore = '', onScoreChange }
   const [branch, setBranch] = useState(null)
   const [gender, setGender] = useState(null)
   const [hasMartyr, setHasMartyr] = useState(null) // null | true | false
-  const [martyrRegion, setMartyrRegion] = useState(null) // null | 'iraq' | 'kurdistan'
   const [statsOpen, setStatsOpen] = useState(false)
 
   const isSecretCode = score === SECRET_STATS_CODE
@@ -29,9 +28,7 @@ export default function ScoreForm({ onSubmit, initialScore = '', onScoreChange }
   const showBranch = scoreValid
   const showGender = showBranch && branch
   const showMartyr = showGender && gender
-  const showMartyrRegion = showMartyr && hasMartyr === true
-  const canSubmit =
-    scoreValid && branch && gender && hasMartyr !== null && (hasMartyr === false || martyrRegion)
+  const canSubmit = scoreValid && branch && gender && hasMartyr !== null
 
   // Each answered step makes the header logo glow and grow a little more —
   // a small, cumulative "coming alive" cue as the form fills in.
@@ -39,9 +36,8 @@ export default function ScoreForm({ onSubmit, initialScore = '', onScoreChange }
     (scoreValid ? 1 : 0) +
     (branch ? 1 : 0) +
     (gender ? 1 : 0) +
-    (hasMartyr !== null ? 1 : 0) +
-    (hasMartyr === false || martyrRegion ? 1 : 0)
-  const totalSteps = 5
+    (hasMartyr !== null ? 1 : 0)
+  const totalSteps = 4
   const logoProgress = filledSteps / totalSteps // 0..1
   const logoScale = 1 + logoProgress * 0.16
   const logoGlow = 10 + logoProgress * 34
@@ -184,35 +180,9 @@ export default function ScoreForm({ onSubmit, initialScore = '', onScoreChange }
               </PillButton>
               <PillButton
                 active={hasMartyr === false}
-                onClick={() => {
-                  setHasMartyr(false)
-                  setMartyrRegion(null)
-                }}
+                onClick={() => setHasMartyr(false)}
               >
                 نەخێر
-              </PillButton>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Martyr region */}
-      <AnimatePresence>
-        {showMartyrRegion && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.35, ease: easeOut }}
-            style={{ overflow: 'hidden' }}
-          >
-            <label style={labelStyle}>شەهیدەکەت لە کوێ بووە؟</label>
-            <div style={{ display: 'flex', gap: 8 }}>
-              <PillButton active={martyrRegion === 'iraq'} onClick={() => setMartyrRegion('iraq')}>
-                شەهید عێراق
-              </PillButton>
-              <PillButton active={martyrRegion === 'kurdistan'} onClick={() => setMartyrRegion('kurdistan')}>
-                شەهید هەرێم
               </PillButton>
             </div>
           </motion.div>
@@ -228,7 +198,7 @@ export default function ScoreForm({ onSubmit, initialScore = '', onScoreChange }
             scorePercent: scoreNum,
             branch,
             gender,
-            martyrRegion: hasMartyr ? martyrRegion : null,
+            hasMartyr,
           })
         }
         whileTap={canSubmit ? { scale: 0.97 } : {}}
