@@ -7,6 +7,7 @@ import InfoBand from './InfoBand'
 import safaLogo from '../assets/safa-logo-transparent.png'
 import { pulseGlow } from './AmbientGlow'
 import StatsPanel from './StatsPanel'
+import Mascot from './Mascot'
 
 const easeOut = [0.16, 1, 0.3, 1]
 
@@ -24,7 +25,7 @@ export default function ScoreForm({ onSubmit, initialScore = '', onScoreChange }
 
   const isSecretCode = score === SECRET_STATS_CODE
   const scoreNum = Number(score)
-  const scoreValid = !isSecretCode && score !== '' && scoreNum >= 0 && scoreNum <= 100.4
+  const scoreValid = !isSecretCode && score !== '' && scoreNum >= 0 && scoreNum <= 120
   const showBranch = scoreValid
   const showGender = showBranch && branch
   const showMartyr = showGender && gender
@@ -61,10 +62,7 @@ export default function ScoreForm({ onSubmit, initialScore = '', onScoreChange }
         >
           <img src={safaLogo} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
         </motion.div>
-        <h1 style={{ fontSize: 22, fontWeight: 700 }}>مامۆستا سەفا</h1>
-        <p style={{ color: 'var(--text-dim)', fontSize: 14, marginTop: 6 }}>
-          ستافی مامۆستا صفا
-        </p>
+        <h1 style={{ fontSize: 22, fontWeight: 700, color: 'var(--text)' }}>ستافی مامۆستا صفا</h1>
       </motion.div>
 
       {/* Score input */}
@@ -72,13 +70,15 @@ export default function ScoreForm({ onSubmit, initialScore = '', onScoreChange }
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45, delay: 0.08, ease: easeOut }}
+        style={{ position: 'relative' }}
       >
+        <Mascot style={{ position: 'absolute', top: -38, left: -4, zIndex: 1 }} />
         <label style={labelStyle}>نمرەی گشتی (0-100)</label>
         <input
           inputMode="decimal"
           type="number"
           min={0}
-          max={100.4}
+          max={120}
           step="0.01"
           placeholder="0"
           value={score}
