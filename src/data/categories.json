@@ -1,0 +1,114 @@
+{
+  "3ibhCG7urxetwz30BDhO": {
+    "categoryKey": "education",
+    "colorHex": "#9B59B6",
+    "icon": "school",
+    "sortOrder": 3,
+    "name": "پەروەردە"
+  },
+  "Bvuhww8FTrcDC00lbD5D": {
+    "categoryKey": "media",
+    "colorHex": "#E74C3C",
+    "icon": "campaign",
+    "sortOrder": 12,
+    "name": "میدیا"
+  },
+  "CFhTex8EpV18HNzW8Inq": {
+    "categoryKey": "generic_technical_institute",
+    "colorHex": "#95A5A6",
+    "icon": "build",
+    "sortOrder": 16,
+    "name": "پەیمانگای تەکنیکی"
+  },
+  "CiWiwY44oNIAtdjNIgP5": {
+    "categoryKey": "oil_gas",
+    "colorHex": "#B8860B",
+    "icon": "local_gas_station",
+    "sortOrder": 13,
+    "name": "نەوت و گاز"
+  },
+  "FKvcxmMErvIB2WAjbarh": {
+    "categoryKey": "islamic_studies",
+    "colorHex": "#C9A227",
+    "icon": "mosque",
+    "sortOrder": 15,
+    "name": "زانستە ئیسلامییەکان"
+  },
+  "Ry62GScBWuixagelpgHE": {
+    "categoryKey": "design_arts",
+    "colorHex": "#D63384",
+    "icon": "palette",
+    "sortOrder": 10,
+    "name": "هونەرە جوانەکان"
+  },
+  "S1pYFdSTUibwLH2RSvzU": {
+    "categoryKey": "archaeology_tourism",
+    "colorHex": "#8D6E63",
+    "icon": "temple_hindu",
+    "sortOrder": 11,
+    "name": "شوێنەوار و گەشتیاری"
+  },
+  "TgIYpVThNk5DnDXzqe5Q": {
+    "categoryKey": "it_computer",
+    "colorHex": "#00BCD4",
+    "icon": "computer",
+    "sortOrder": 8,
+    "name": "زانستی کۆمپیوتەر و زانیاری"
+  },
+  "b6F0gCTaPAd2BNqkcjnm": {
+    "categoryKey": "law_political",
+    "colorHex": "#34495E",
+    "icon": "gavel",
+    "sortOrder": 7,
+    "name": "یاسا و زانستە سیاسییەکان"
+  },
+  "dJV4WkAIVRIJ0yIY3T7p": {
+    "categoryKey": "engineering",
+    "colorHex": "#3498DB",
+    "icon": "engineering",
+    "sortOrder": 2,
+    "name": "ئەندازیاری"
+  },
+  "jCIYaml7Xe2zoEyU0fd7": {
+    "categoryKey": "business",
+    "colorHex": "#E67E22",
+    "icon": "business_center",
+    "sortOrder": 4,
+    "name": "بازرگانی و ئابووری"
+  },
+  "kJPFboo7XrmBxP0xJtte": {
+    "categoryKey": "agriculture",
+    "colorHex": "#8BC34A",
+    "icon": "agriculture",
+    "sortOrder": 9,
+    "name": "کشتوکاڵ"
+  },
+  "lhkt0PBE6Io2S2AHUXOW": {
+    "categoryKey": "environment_energy",
+    "colorHex": "#66BB6A",
+    "icon": "eco",
+    "sortOrder": 14,
+    "name": "ژینگە و وزە"
+  },
+  "nI3V6CAZ4KBAU4fcUibC": {
+    "categoryKey": "science",
+    "colorHex": "#1ABC9C",
+    "icon": "science",
+    "sortOrder": 5,
+    "name": "زانستە سروشتییەکان"
+  },
+  "pKOnODJ28pyH4JSx7Niz": {
+    "categoryKey": "arts_humanities",
+    "colorHex": "#E84393",
+    "icon": "menu_book",
+    "sortOrder": 6,
+    "name": "ئەدەبیات و زانستە مرۆییەکان"
+  },
+  "qBhOpvYulUTmTwv49BTL": {
+    "categoryKey": "healthcare",
+    "colorHex": "#2ECC71",
+    "icon": "local_hospital",
+    "sortOrder": 1,
+    "name": "تەندروستی و پزیشکی"
+  }
+}
