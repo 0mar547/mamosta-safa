@@ -7,7 +7,6 @@ import InfoBand from './InfoBand'
 import safaLogo from '../assets/safa-logo-transparent.png'
 import { pulseGlow } from './AmbientGlow'
 import StatsPanel from './StatsPanel'
-import ScoreReaction from './ScoreReaction'
 
 const easeOut = [0.16, 1, 0.3, 1]
 
@@ -72,11 +71,7 @@ export default function ScoreForm({ onSubmit, initialScore = '', onScoreChange }
         transition={{ duration: 0.45, delay: 0.08, ease: easeOut }}
         style={{ position: 'relative' }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
-          <label style={{ ...labelStyle, marginBottom: 0 }}>نمرەی گشتی (0-100)</label>
-          <ScoreReaction scoreNum={scoreValid ? scoreNum : NaN} />
-        </div>
-        <div style={{ height: 8 }} />
+        <label style={labelStyle}>نمرەی گشتی (0-100)</label>
         <input
           inputMode="decimal"
           type="number"
