@@ -73,3 +73,12 @@ p, h1, h2, h3 {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Twemoji images swapped in for native emoji glyphs — sized to sit inline
+   with surrounding text regardless of the viewer's own OS emoji font. */
+.emoji-img {
+  height: 1.15em;
+  width: 1.15em;
+  vertical-align: -0.2em;
+  display: inline-block;
+}
