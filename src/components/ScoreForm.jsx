@@ -61,7 +61,6 @@ export default function ScoreForm({ onSubmit, initialScore = '', onScoreChange }
         >
           <img src={safaLogo} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
         </motion.div>
-        <h1 style={{ fontSize: 22, fontWeight: 700, color: 'var(--text)' }}>ستافی مامۆستا صفا</h1>
       </motion.div>
 
       {/* Score input */}
