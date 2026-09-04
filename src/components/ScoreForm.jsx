@@ -72,7 +72,7 @@ export default function ScoreForm({ onSubmit, initialScore = '', onScoreChange }
         transition={{ duration: 0.45, delay: 0.08, ease: easeOut }}
         style={{ position: 'relative' }}
       >
-        <Mascot style={{ position: 'absolute', top: -38, left: -4, zIndex: 1 }} />
+        <Mascot style={{ position: 'absolute', top: -30, left: -6, zIndex: 1 }} />
         <label style={labelStyle}>نمرەی گشتی (0-100)</label>
         <input
           inputMode="decimal"

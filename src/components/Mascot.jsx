@@ -2,19 +2,22 @@ import { useEffect, useRef, useState } from 'react'
 import mascotSheet from '../assets/mascot_sheet.png'
 
 // The mascot sprite sheet is 8 frames laid out in a single horizontal strip,
-// each 328x599px (matches the raw grid cells cut from the source artwork).
+// each 1463x1019px (a head-and-hands idle loop: tasbih in one hand, tea glass
+// in the other). All 8 source frames share one coordinate space, so they were
+// cropped to a common bounding box rather than individually trimmed — that
+// keeps the head rock-steady across frames with no realignment needed.
 const FRAME_COUNT = 8
-const FRAME_W = 328
-const FRAME_H = 599
+const FRAME_W = 1463
+const FRAME_H = 1019
 
 // How long each frame stays on screen during the idle loop, in ms. Slow and
 // calm — he's just sitting there sipping tea, not doing anything urgent.
 const FRAME_INTERVAL_MS = 1600
 
-// Display size on screen — scaled down from the raw pixel-art resolution so
-// he reads as a small companion perched at the corner of the score card,
-// not a huge character competing with the form.
-const DISPLAY_WIDTH = 64
+// Display size on screen — scaled down from the raw resolution so he reads
+// as a small companion perched at the corner of the score card, not a huge
+// character competing with the form.
+const DISPLAY_WIDTH = 74
 const DISPLAY_HEIGHT = Math.round((DISPLAY_WIDTH / FRAME_W) * FRAME_H)
 
 export default function Mascot({ style }) {
@@ -39,7 +42,6 @@ export default function Mascot({ style }) {
         height: DISPLAY_HEIGHT,
         overflow: 'hidden',
         position: 'relative',
-        imageRendering: 'pixelated',
         pointerEvents: 'none',
         ...style,
       }}
@@ -54,7 +56,6 @@ export default function Mascot({ style }) {
           backgroundImage: `url(${mascotSheet})`,
           backgroundPosition: `-${frame * FRAME_W}px 0`,
           backgroundRepeat: 'no-repeat',
-          imageRendering: 'pixelated',
           transform: `scale(${scale})`,
           transformOrigin: 'top left',
         }}
