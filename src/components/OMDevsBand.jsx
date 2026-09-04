@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import omdevsLogo from '../assets/omdevs-logo.png'
 import { InstagramIcon } from './BrandIcons'
 
-const INSTAGRAM_URL = 'https://www.instagram.com/omdevs_official/'
+const INSTAGRAM_URL = 'https://www.instagram.com/omdevs_official_/'
 
 export default function OMDevsBand() {
   return (
