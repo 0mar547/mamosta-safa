@@ -9,7 +9,7 @@ const FRAME_H = 599
 
 // How long each frame stays on screen during the idle loop, in ms. Slow and
 // calm — he's just sitting there sipping tea, not doing anything urgent.
-const FRAME_INTERVAL_MS = 450
+const FRAME_INTERVAL_MS = 1600
 
 // Display size on screen — scaled down from the raw pixel-art resolution so
 // he reads as a small companion perched at the corner of the score card,
