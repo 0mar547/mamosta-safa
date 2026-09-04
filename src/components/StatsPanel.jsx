@@ -8,17 +8,17 @@ const easeOut = [0.16, 1, 0.3, 1]
 // score field (see ScoreForm). Shows how many times the page has been
 // visited. Not linked from anywhere in the visible UI.
 export default function StatsPanel({ open, onClose }) {
-  const [count, setCount] = useState(null)
+  const [stats, setStats] = useState({ pageviews: null, visitors: null })
   const [status, setStatus] = useState('loading') // 'loading' | 'ready' | 'unavailable'
 
   useEffect(() => {
     if (!open) return
     setStatus('loading')
-    getVisitCount().then((n) => {
-      if (n === null) {
+    getVisitCount().then((result) => {
+      if (result === null) {
         setStatus('unavailable')
       } else {
-        setCount(n)
+        setStats(result)
         setStatus('ready')
       }
     })
@@ -71,14 +71,28 @@ export default function StatsPanel({ open, onClose }) {
             )}
 
             {status === 'ready' && (
-              <>
-                <div style={{ fontSize: 42, fontWeight: 800, color: 'var(--gold-soft)', fontVariantNumeric: 'tabular-nums' }}>
-                  {count}
-                </div>
-                <div style={{ fontSize: 13, color: 'var(--text-dim)', marginTop: 6 }}>
-                  گشتی سەردانەکان
-                </div>
-              </>
+              <div style={{ display: 'flex', gap: 12 }}>
+                {stats.visitors !== null && (
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: 34, fontWeight: 800, color: 'var(--gold-soft)', fontVariantNumeric: 'tabular-nums' }}>
+                      {stats.visitors}
+                    </div>
+                    <div style={{ fontSize: 12, color: 'var(--text-dim)', marginTop: 6 }}>
+                      سەردانکەر
+                    </div>
+                  </div>
+                )}
+                {stats.pageviews !== null && (
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: 34, fontWeight: 800, color: 'var(--gold-soft)', fontVariantNumeric: 'tabular-nums' }}>
+                      {stats.pageviews}
+                    </div>
+                    <div style={{ fontSize: 12, color: 'var(--text-dim)', marginTop: 6 }}>
+                      بینینی لاپەڕە
+                    </div>
+                  </div>
+                )}
+              </div>
             )}
 
             {status === 'unavailable' && (
