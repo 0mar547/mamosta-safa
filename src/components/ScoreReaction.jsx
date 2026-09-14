@@ -42,17 +42,17 @@ export default function ScoreReaction({ scoreNum }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, transition: { duration: 0.15 } }}
           transition={{ duration: 0.28, ease: easeOut }}
-          style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}
+          style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0, marginTop: 6 }}
         >
           <span
             style={{
               fontSize: 15,
               fontWeight: 800,
               color: 'var(--text)',
-              whiteSpace: 'nowrap',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
+              whiteSpace: 'normal',
+              wordBreak: 'break-word',
               minWidth: 0,
+              flex: 1,
             }}
           >
             {tier.text}
