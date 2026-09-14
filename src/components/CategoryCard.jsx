@@ -1,27 +1,10 @@
 import { useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { groupByCity } from '../lib/data'
+import CategoryIcon from './CategoryIcon'
+import CategoryPerson from './CategoryPerson'
 
 const easeOut = [0.16, 1, 0.3, 1]
-
-export const ICONS = {
-  school: '🎓',
-  campaign: '📣',
-  build: '🛠️',
-  local_gas_station: '⛽',
-  mosque: '🕌',
-  palette: '🎨',
-  temple_hindu: '🏛️',
-  computer: '💻',
-  gavel: '⚖️',
-  engineering: '⚙️',
-  business_center: '💼',
-  agriculture: '🌾',
-  eco: '🌿',
-  science: '🔬',
-  menu_book: '📖',
-  local_hospital: '🏥',
-}
 
 // group: { category, accepted:[], rejected:[] }
 // onOpenCity(group, cityKey) — cityKey is 'all' | city name | '__unspecified__'
@@ -72,7 +55,7 @@ export default function CategoryCard({ group, index, expanded, onToggle, onOpenC
             flexShrink: 0,
           }}
         >
-          {ICONS[group.category.icon] ?? '📚'}
+          <CategoryIcon categoryKey={group.category.categoryKey} />
         </div>
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontSize: 14.5, fontWeight: 700 }}>{group.category.name}</div>
@@ -81,6 +64,7 @@ export default function CategoryCard({ group, index, expanded, onToggle, onOpenC
             <span style={{ color: 'var(--red)' }}>{group.rejected.length} وەرناگیریت</span>
           </div>
         </div>
+        <CategoryPerson categoryKey={group.category.categoryKey} />
         <span style={{ fontSize: 11.5, color: 'var(--text-dim)', fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0 }}>
           {group.accepted.length + group.rejected.length} کۆلێژ
         </span>

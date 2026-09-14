@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { groupByCity } from '../lib/data'
-import { ICONS } from './CategoryCard'
+import CategoryIcon from './CategoryIcon'
 
 const easeOut = [0.16, 1, 0.3, 1]
 
@@ -110,7 +110,7 @@ function Content({ selection, tab, setTab, onClose }) {
             flexShrink: 0,
           }}
         >
-          {ICONS[group.category.icon] ?? '📚'}
+          <CategoryIcon categoryKey={group.category.categoryKey} />
         </div>
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontSize: 14, fontWeight: 700 }}>{group.category.name}</div>
