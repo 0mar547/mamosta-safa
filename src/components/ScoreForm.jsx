@@ -72,10 +72,10 @@ export default function ScoreForm({ onSubmit, initialScore = '', onScoreChange }
         transition={{ duration: 0.45, delay: 0.08, ease: easeOut }}
         style={{ position: 'relative' }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
-          <label style={{ ...labelStyle, marginBottom: 0, flexShrink: 0, whiteSpace: 'nowrap' }}>نمرەی گشتی (0-100)</label>
+        <div style={{ position: 'relative' }}>
+          <label style={{ ...labelStyle, marginBottom: 0, whiteSpace: 'nowrap' }}>نمرەی گشتی (0-100)</label>
+          <ScoreReaction scoreNum={scoreValid ? scoreNum : NaN} />
         </div>
-        <ScoreReaction scoreNum={scoreValid ? scoreNum : NaN} />
         <div style={{ height: 8 }} />
         <input
           inputMode="decimal"
