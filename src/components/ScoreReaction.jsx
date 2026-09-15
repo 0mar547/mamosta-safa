@@ -43,24 +43,20 @@ export default function ScoreReaction({ scoreNum }) {
           exit={{ opacity: 0, transition: { duration: 0.15 } }}
           transition={{ duration: 0.28, ease: easeOut }}
           style={{
-            // Absolutely positioned over the score-label row, anchored to
-            // its left side (opposite the label text) — this overlay never
-            // affects the label's own layout, so if the text is long it
-            // simply wraps onto extra lines below itself instead of
-            // pushing the "0-100" label or the input beneath it down.
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: 220,
-            maxWidth: '65vw',
+            // Normal flex child of the label row: icon first (far left),
+            // then the text, with the score label pinned to the right by
+            // the parent. minWidth:0 lets the text actually wrap instead
+            // of forcing the row wider and shoving the label around.
             display: 'flex',
-            alignItems: 'flex-start',
+            flexDirection: 'row',
+            alignItems: 'flex-end',
             justifyContent: 'flex-start',
             gap: 8,
-            zIndex: 2,
+            minWidth: 0,
+            flex: 1,
           }}
         >
-          <div style={{ width: 40, height: 40, flexShrink: 0 }}>
+          <div style={{ width: 52, height: 52, flexShrink: 0 }}>
             {tier.type === 'lottie' ? (
               <Lottie animationData={tier.asset} loop autoplay style={{ width: '100%', height: '100%' }} />
             ) : (
@@ -68,17 +64,23 @@ export default function ScoreReaction({ scoreNum }) {
             )}
           </div>
           <span
+            dir="rtl"
             style={{
               fontSize: 13,
               fontWeight: 800,
               color: 'var(--text)',
               whiteSpace: 'normal',
-              wordBreak: 'break-word',
+              overflowWrap: 'break-word',
+              // right-aligned so wrapped lines stack flush under each
+              // other next to the label, instead of staircasing
               textAlign: 'right',
               lineHeight: 1.3,
-              paddingTop: 4,
+              paddingBottom: 6,
               minWidth: 0,
-              flex: 1,
+              // shrink-to-fit (not flex:1) so the text stays tucked up
+              // against the icon instead of stretching across and
+              // crowding the "0-100" label
+              flex: '0 1 auto',
             }}
           >
             {tier.text}

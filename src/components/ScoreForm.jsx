@@ -72,9 +72,14 @@ export default function ScoreForm({ onSubmit, initialScore = '', onScoreChange }
         transition={{ duration: 0.45, delay: 0.08, ease: easeOut }}
         style={{ position: 'relative' }}
       >
-        <div style={{ position: 'relative' }}>
-          <label style={{ ...labelStyle, marginBottom: 0, whiteSpace: 'nowrap' }}>نمرەی گشتی (0-100)</label>
+        {/* Reaction (icon + text) on the left, score label pinned right.
+            Real flex row, so the label always reserves its own width and
+            the reaction can never overlap it. The row is bottom-aligned
+            and the reaction is the only thing that can grow taller, so a
+            long reaction wraps upward and the label never moves. */}
+        <div style={{ direction: 'ltr', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 24, minHeight: 56 }}>
           <ScoreReaction scoreNum={scoreValid ? scoreNum : NaN} />
+          <label dir="rtl" style={{ ...labelStyle, marginBottom: 0, whiteSpace: 'nowrap', flexShrink: 0 }}>نمرەی گشتی (0-100)</label>
         </div>
         <div style={{ height: 8 }} />
         <input
